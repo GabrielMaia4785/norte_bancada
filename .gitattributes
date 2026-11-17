@@ -1,0 +1,6 @@
+* text=auto
+*.ydr binary
+*.ytd binary
+*.ytyp binary
+*.wav binary
+*.png binary

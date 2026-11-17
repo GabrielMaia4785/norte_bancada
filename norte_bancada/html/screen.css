@@ -1,0 +1,84 @@
+/* norte_bancada: ecrã da MK2 (DUI 640 x 360). Contexto World, Segmented Progress, grelha de blueprint.
+   Só tokens do tokens.css. 1rem = 1px a 640 de largura. */
+
+html { font-size: calc(100vw / 640); }
+html, body { width: 100%; height: 100%; overflow: hidden; background: var(--base-deep); }
+
+.screen {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: var(--s-22) var(--s-24);
+    color: var(--text);
+    /* Grelha de blueprint: linhas finas a cada 20, mais fortes a cada 100 */
+    background-color: var(--base-deep);
+    background-image:
+        linear-gradient(var(--line-hi) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-hi) 1px, transparent 1px),
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 100rem 100rem, 100rem 100rem, 20rem 20rem, 20rem 20rem;
+    background-position: -1px -1px;
+}
+
+/* Marcas de canto, como num desenho técnico */
+.mark { position: absolute; width: var(--s-16); height: var(--s-16); border: 0 solid var(--accent); }
+.mark--tl { top: var(--s-10); left: var(--s-10); border-top-width: 2px; border-left-width: 2px; }
+.mark--tr { top: var(--s-10); right: var(--s-10); border-top-width: 2px; border-right-width: 2px; }
+.mark--bl { bottom: var(--s-10); left: var(--s-10); border-bottom-width: 2px; border-left-width: 2px; }
+.mark--br { bottom: var(--s-10); right: var(--s-10); border-bottom-width: 2px; border-right-width: 2px; }
+
+.screen__head,
+.screen__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-12);
+}
+.screen__ref { color: var(--accent); }
+
+/* Tag de estado: neutra parada, accent a carregar, ok no fim */
+.screen__status {
+    display: inline-flex;
+    align-items: center;
+    height: var(--h-tag);
+    padding: 0 var(--s-8);
+    border: 1px solid var(--line-hi);
+    border-radius: var(--radius-sm);
+    background: var(--cell);
+    color: var(--soft);
+}
+.screen[data-state="loading"] .screen__status { border-color: var(--accent); color: var(--accent); }
+.screen[data-state="done"] .screen__status { border-color: var(--ok); color: var(--ok); background: var(--ok-subtle); }
+
+.screen__main {
+    display: flex;
+    flex: 1;
+    align-items: baseline;
+    gap: var(--s-14);
+    padding-top: var(--s-18);
+}
+.screen__pct { font-size: 112rem; line-height: 0.9; }
+.screen__unit { color: var(--soft); font-size: 18rem; }
+
+/* Segmented Progress: 20 segmentos, os cheios a accent */
+.segments {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: var(--s-4);
+    height: var(--s-24);
+    margin: var(--s-16) 0;
+}
+.segment {
+    border: 1px solid var(--line-hi);
+    border-radius: 2rem;
+    background: var(--track);
+    transition: background-color var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+}
+.segment.is-on { background: var(--accent); border-color: var(--accent); }
+.screen[data-state="done"] .segment.is-on { background: var(--ok); border-color: var(--ok); }
+
+.screen__foot .t-micro { font-size: 16rem; }
+.screen__foot .t-micro:first-child { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; min-width: 0; }

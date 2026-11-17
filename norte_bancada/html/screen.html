@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>norte_bancada screen</title>
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="screen.css">
+</head>
+<body>
+    <!-- DUI do ecrã da MK2 (textura nr_mk2_ecra), 640 x 360. Só mostra: client.lua manda o estado. -->
+    <main class="screen" id="screen" data-state="idle">
+        <i class="mark mark--tl"></i><i class="mark mark--tr"></i><i class="mark mark--bl"></i><i class="mark mark--br"></i>
+
+        <header class="screen__head">
+            <span class="t-micro screen__ref" id="title">MAGAZINE LOADER</span>
+            <span class="t-tag screen__status" id="status">STANDBY</span>
+        </header>
+
+        <section class="screen__main">
+            <span class="t-value-xl screen__pct" id="pct">0%</span>
+            <span class="t-micro screen__unit" id="count">0 / 0 RDS</span>
+        </section>
+
+        <div class="segments" id="segments" aria-hidden="true"></div>
+
+        <footer class="screen__foot">
+            <span class="t-micro" id="mag">NO MAGAZINES</span>
+            <span class="t-micro" id="rounds">0 RDS IN HOPPER</span>
+        </footer>
+    </main>
+    <script src="screen.js"></script>
+</body>
+</html>
