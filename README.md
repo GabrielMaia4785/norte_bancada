@@ -34,16 +34,14 @@ Both models have a screen texture that shows a live loading page (a DUI in an in
 
 ## Installation
 
-1. Copy the three folders into your resources: `norte_bancada`, `norte_bancada_props`, `norte_bancada_mk2_props`.
+1. Copy the `norte_bancada` folder into your resources. Both models stream from `norte_bancada/stream`.
 2. Add to `server.cfg`, after whip_core and whip_gunny:
    ```
-   ensure norte_bancada_props
-   ensure norte_bancada_mk2_props
    ensure norte_bancada
    ```
 3. Give yourself a machine: `/whip_giveitem norte_bancada` or `/whip_giveitem norte_bancada_mk2`.
 
-The models live in their own resources on purpose. Restarting a resource that streams a model in use crashes the clients that have it spawned. Restart `norte_bancada` freely. To restart a props resource, stop `norte_bancada` first, then restart the props, then start `norte_bancada` again.
+The models ship inside `norte_bancada`, so `ensure norte_bancada` loads them too. On stop, the client deletes every machine object before the models unload.
 
 ## Admin
 

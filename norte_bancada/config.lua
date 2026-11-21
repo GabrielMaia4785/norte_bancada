@@ -1,7 +1,7 @@
 Config = {}
 
 -- Os tipos de máquina, um item cada. A chave é o item do inventário (e o nome do ícone em html/img/items).
---   model         o prop (origem no centro da base, ao nível dos pés), em norte_bancada_props / norte_bancada_mk2_props
+--   model         o prop (origem no centro da base, ao nível dos pés), em stream/
 --   layout        como encaixar a caixa e os carregadores: 'single' (encaixe.lua, os carregadores lado a lado no y)
 --                 ou 'mk2' (encaixe_mk2.lua, 4 apoios com 3 lugares cada)
 --   maxMags       carregadores que cabem de cada vez (também em /whip → Settings → Magazine Loader)

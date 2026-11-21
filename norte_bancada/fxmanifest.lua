@@ -8,10 +8,13 @@ version '1.0.0'
 
 dependencies {
     'whip_core',
-    'norte_bancada_props',       -- o modelo da máquina, num recurso à parte (ver o fxmanifest de lá)
-    'norte_bancada_mk2_props',   -- o modelo da MK2, também à parte
 }
 whip_requires '1.0'
+
+-- Os modelos das máquinas (stream/): nr_bancada_municoes e nr_bancada_mk2_municoes.
+-- Ao parar, o client.lua apaga todas as máquinas antes de o modelo ser descarregado.
+data_file 'DLC_ITYP_REQUEST' 'stream/nr_bancada.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/nr_bancada_mk2.ytyp'
 
 shared_scripts {
     '@whip_core/lib/satellite.lua',
